@@ -8,7 +8,7 @@ jobs:
       - run: mkdir /home/runner/.kube/ && echo "${{ secrets.KUBECONFIG }}" > /home/runner/.kube/config
         shell: bash
       - uses: actions/checkout@v2
-      - uses: imiller31/install-osm-action@v0.1
+      - uses: imiller31/install-osm-action@v0.2
         with:
           KUBECONFIG: /home/runner/.kube/config
 
