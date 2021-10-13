@@ -1,0 +1,14 @@
+on: [push]
+
+jobs:
+  Install-OSM-Action:
+    runs-on: ubuntu-latest
+    name: installs-linkerd
+    steps:
+      - run: mkdir /home/runner/.kube/ && echo "${{ secrets.KUBECONFIG }}" > /home/runner/.kube/config
+        shell: bash
+      - uses: actions/checkout@v2
+      - uses: imiller31/install-osm-action@v0.1
+        with:
+          KUBECONFIG: /home/runner/.kube/config
+
