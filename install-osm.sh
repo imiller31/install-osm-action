@@ -9,7 +9,7 @@ curl -sL "https://github.com/openservicemesh/osm/releases/download/$OSM_VERSION/
 sudo mv ./linux-amd64/osm /usr/local/bin/osm
 osm version
 
-OSM_INSTALL=$(osm install 2>&1)
+OSM_INSTALL=$(osm install 2>&1 >/dev/null)
 
 if grep -q "Error: Mesh osm already exists" <<< "$OSM_INSTALL"; then
     osm mesh upgrade
