@@ -13,6 +13,8 @@ set +e
 OSM_INSTALL=$(osm install 2>&1) || true
 set -e
 
+echo $OSM_INSTALL
+
 if grep -q "Error: Mesh osm already exists" <<< "$OSM_INSTALL"; then
     osm mesh upgrade
 fi
