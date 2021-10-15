@@ -1,10 +1,5 @@
 name: 'Install Linkerd'
 description: 'installs linkerd onto target cluster'
-inputs:
-  KUBECONFIG:
-    description: "path to kubeconfig"
-    required: false
-    default: "~/.kube/config"
 runs:
   using: "composite"
   steps:
@@ -12,5 +7,3 @@ runs:
       shell: bash
     - run: ${{ github.action_path }}/install-osm.sh
       shell: bash
-      env:
-        KUBECONFIG: ${{ inputs.KUBECONFIG }}
